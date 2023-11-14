@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos para enlaces comunes */
+.common-link {
+  color: #ffffff; /* color del texto */
+  text-decoration: none; /* quitar subrayado */
+  padding: 0.5rem 1rem; /* espacio alrededor del texto */
+  transition: color 0.3s ease; /* suavizar el cambio de color al pasar el ratón */
+}
+
+.common-link:hover {
+  color: #ffcc00; /* color del texto al pasar el ratón */
+}
+
+/* Estilos para enlaces personalizados (como Cantera Mildner) */
+.custom-link {
+  font-size: 1.5rem; /* tamaño del texto */
+  font-weight: bold; /* negrita */
+  color: #ffffff; /* color del texto */
+  text-decoration: none; /* quitar subrayado */
+}
+
+.custom-link:hover {
+  color: #ffcc00; /* color del texto al pasar el ratón */
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  min-height: 100vh;
+  padding-top: 4rem;
+}
+
+.sales-card {
+  position: relative;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  font-weight: bold;
+  width: 300px;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.sales-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.sales-link {
+  display: block;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sales-link:hover {
+  background-color: #f0f0f0;
+}
