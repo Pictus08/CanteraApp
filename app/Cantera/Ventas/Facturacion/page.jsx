@@ -1,5 +1,4 @@
 "use client";
-// Import the required dependencies and components
 import React, { useState } from "react";
 import NavbarCantera from "@/components/NavbarCantera";
 

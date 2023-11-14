@@ -1,38 +1,47 @@
 "use client";
 import React, { useState } from "react";
-
 import NavbarVentas from "@/components/NavbarCantera";
 
+// Functional component for handling purchases
 export default function Compras() {
+  // State variables for form data
   const [numeroFactura, setNumeroFactura] = useState("");
   const [proveedor, setProveedor] = useState("");
   const [iva, setIVA] = useState("");
   const [total, setTotal] = useState("");
 
+  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Datos del formulario:", {
+    // Log form data to the console
+    console.log("Form Data:", {
       numeroFactura,
       proveedor,
       iva,
       total,
     });
 
+    // Reset form fields after submission
     setNumeroFactura("");
     setProveedor("");
     setIVA("");
     setTotal("");
   };
 
+  // JSX structure for the component
   return (
     <>
+      {/* Display the sales navbar */}
       <NavbarVentas />
+      {/* Form container */}
       <div className="max-w-2xl mx-auto mt-8 p-4">
+        {/* Purchase form */}
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Invoice number input */}
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              N° de Factura:
+              Invoice Number:
             </label>
             <input
               type="text"
@@ -42,9 +51,10 @@ export default function Compras() {
             />
           </div>
 
+          {/* Supplier input */}
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Proveedor:
+              Supplier:
             </label>
             <input
               type="text"
@@ -54,9 +64,10 @@ export default function Compras() {
             />
           </div>
 
+          {/* IVA (VAT) input */}
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              IVA ($):
+              VAT ($):
             </label>
             <input
               type="text"
@@ -66,6 +77,7 @@ export default function Compras() {
             />
           </div>
 
+          {/* Total input */}
           <div>
             <label className="block text-sm font-medium text-gray-700">
               Total ($):
@@ -78,11 +90,12 @@ export default function Compras() {
             />
           </div>
 
+          {/* Submit button */}
           <button
             type="submit"
             className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700"
           >
-            Guardar Compra
+            Save Purchase
           </button>
         </form>
       </div>
