@@ -2,13 +2,14 @@
 import React, { useState } from "react";
 import NavbarVentas from "@/components/NavbarCantera";
 
-// Functional component for handling purchases
 export default function Compras() {
   // State variables for form data
   const [numeroFactura, setNumeroFactura] = useState("");
   const [proveedor, setProveedor] = useState("");
   const [iva, setIVA] = useState("");
   const [total, setTotal] = useState("");
+  const [agregarComentario, setAgregarComentario] = useState(false);
+  const [comentario, setComentario] = useState("");
 
   // Function to handle form submission
   const handleSubmit = (e) => {
@@ -20,6 +21,7 @@ export default function Compras() {
       proveedor,
       iva,
       total,
+      comentario: agregarComentario ? comentario : null,
     });
 
     // Reset form fields after submission
@@ -27,6 +29,8 @@ export default function Compras() {
     setProveedor("");
     setIVA("");
     setTotal("");
+    setAgregarComentario(false);
+    setComentario("");
   };
 
   // JSX structure for the component
@@ -41,7 +45,7 @@ export default function Compras() {
           {/* Invoice number input */}
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Invoice Number:
+              N° de Factura:
             </label>
             <input
               type="text"
@@ -54,7 +58,7 @@ export default function Compras() {
           {/* Supplier input */}
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Supplier:
+              Proveedor
             </label>
             <input
               type="text"
@@ -67,7 +71,7 @@ export default function Compras() {
           {/* IVA (VAT) input */}
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              VAT ($):
+              IVA ($):
             </label>
             <input
               type="text"
@@ -90,12 +94,44 @@ export default function Compras() {
             />
           </div>
 
+          {/* Checkbox for adding comments */}
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              id="agregarComentario"
+              checked={agregarComentario}
+              onChange={() => setAgregarComentario(!agregarComentario)}
+              className="mr-2"
+            />
+            <label
+              htmlFor="agregarComentario"
+              className="text-sm font-medium text-gray-700"
+            >
+              Agregar Comentario
+            </label>
+          </div>
+
+          {/* Comment input */}
+          {agregarComentario && (
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Comentario (150 caracteres):
+              </label>
+              <textarea
+                value={comentario}
+                onChange={(e) => setComentario(e.target.value)}
+                className="mt-1 p-2 border rounded-md w-full"
+                maxLength={150}
+              />
+            </div>
+          )}
+
           {/* Submit button */}
           <button
             type="submit"
             className="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-700"
           >
-            Save Purchase
+            Guardar Compra
           </button>
         </form>
       </div>
